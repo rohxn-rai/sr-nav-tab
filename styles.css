@@ -20,7 +20,7 @@ body {
   background: linear-gradient(0deg, var(--black), #212121);
   position: relative;
   box-shadow: inset 10px 0 10px black;
-  &::after {
+  &:after {
     content: "";
     display: block;
     position: absolute;
@@ -38,23 +38,23 @@ body {
   display: flex;
   a {
     z-index: 10;
+    position: relative;
     display: inline-block;
     padding: 20px 40px;
     color: white;
     text-decoration: none;
-    &::before {
+    &:before {
       content: "";
       display: block;
       position: absolute;
       inset: 0;
-      background: red;
       opacity: 0.2;
     }
     &.active {
       anchor-name: --active;
       color: black;
     }
-    &:hover {
+    &:hover:before {
       anchor-name: --nav;
     }
   }
@@ -62,7 +62,6 @@ body {
 
 .bubble {
   background: white;
-  z-index: 5;
   top: anchor(top);
   right: anchor(right);
   bottom: anchor(bottom);
@@ -84,7 +83,7 @@ body {
   }
 }
 
-.taget {
+.target {
   position: relative;
   z-index: -1;
 }
