@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smooth Navigation Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="nav-wrap">
+      <nav class="nav">
+        <a class="active" href="#">Projects</a>
+        <a href="#">Gallery</a>
+        <a href="#">Studio</a>
+        <a href="#">Profile</a>
+      </nav>
+      <div class="bubble active"></div>
+      <div class="bubble hover"></div>
+    </div>
+
+    <script>
+      const navLinks = document.querySelectorAll(".nav a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          const currentActive = document.querySelector(".nav a.active");
+          if (currentActive) {
+            currentActive.classList.remove("active");
+          }
+
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

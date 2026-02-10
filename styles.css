@@ -1,0 +1,90 @@
+:root {
+  --black: #0f0f0f;
+  --gray: #3f3f3f;
+  --white: #fff;
+}
+
+html {
+  background-color: var(--black);
+}
+
+body {
+  margin: 100px auto;
+}
+
+.nav-wrap {
+  border: 1px solid var(--gray);
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 500px;
+  background: linear-gradient(0deg, var(--black), #212121);
+  position: relative;
+  box-shadow: inset 10px 0 10px black;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: -5px;
+    background: linear-gradient(180deg, var(--gray), #212121);
+    border-radius: 500px;
+    z-index: -1;
+  }
+}
+
+.nav {
+  width: fit-content;
+  anchor-name: --nav;
+  margin: 6.7px;
+  display: flex;
+  a {
+    z-index: 10;
+    display: inline-block;
+    padding: 20px 40px;
+    color: white;
+    text-decoration: none;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: red;
+      opacity: 0.2;
+    }
+    &.active {
+      anchor-name: --active;
+      color: black;
+    }
+    &:hover {
+      anchor-name: --nav;
+    }
+  }
+}
+
+.bubble {
+  background: white;
+  z-index: 5;
+  top: anchor(top);
+  right: anchor(right);
+  bottom: anchor(bottom);
+  left: anchor(left);
+  position: absolute;
+  transition: all 0.2s;
+  border-radius: 500px;
+  &.active {
+    position-anchor: --active;
+    z-index: 2;
+    background: linear-gradient(180deg, var(--white), #b3b3b3);
+    box-shadow: inset 0 2px 11px #fff;
+  }
+  &.hover {
+    z-index: 1;
+    background: linear-gradient(180deg, var(--gray), #212121);
+    box-shadow: inset 0 2px 11px #ffffff29;
+    position-anchor: --nav;
+  }
+}
+
+.taget {
+  position: relative;
+  z-index: -1;
+}
